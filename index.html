@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Firechat</title>
+</head>
+
+<body class="bg-light">
+        <div class="card">
+                <div class="card-body">
+    <!-- container & title -->
+    <div class="container">
+        <h1 class="mt-2 mb-4 text-center"><i class="fas fa-fire"></i> Firechat</h1>
+        <!-- buttons for chatrooms -->
+        <div class="chat-rooms mb-3 text-center">
+            <div class="my-2">Choose a chatroom:</div>
+            <button class="btn btn-outline-secondary" id="general">#general</button>
+            <button class="btn btn-outline-secondary" id="html">#html</button>
+            <button class="btn btn-outline-secondary" id="css">#css</button>
+            <button class="btn btn-outline-secondary" id="javascript">#javascript</button>
+            <button class="btn btn-outline-secondary" id="react">#react</button>
+            <button class="btn btn-outline-secondary" id="other">#other</button>
+        </div>
+        <!-- chat list / window -->
+        <div class="chat-window">
+            <ul class="chat-list list-group"></ul>
+        </div>
+        <!-- new chat form -->
+        <form class="new-chat my-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text d-flex align-items-center"><i class="fas fa-comment-dots"></i>&nbsp;&nbsp;<span class="user"></span>:</div>
+                </div>
+                <input type="text" id="message" class="form-control" autocomplete="off" placeholder="Message" required>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i>&nbsp;&nbsp;Send</button>
+                </div>
+            </div>
+        </form>
+        <!-- update name form -->
+        <form class="new-name my-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-user"></i></div>
+                </div>
+                <input type="text" id="nickname" class="form-control" autocomplete="off" placeholder="Update name" required>
+                <div class="input-group-append">
+                    <input type="submit" class="btn btn-secondary" value="Update">
+                </div>
+            </div>
+            <small class="update-msg form-text text-center text-muted"></small>
+        </form>
+    </div>
+    </div>
+    </div>
+
+    <script src="http://cdn.date-fns.org/v1.9.0/date_fns.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyALmZDulk0IBO4KYlHcnHiZNyTB433lHyw",
+            authDomain: "fire-chat-ffc55.firebaseapp.com",
+            databaseURL: "https://fire-chat-ffc55.firebaseio.com",
+            projectId: "fire-chat-ffc55",
+            storageBucket: "fire-chat-ffc55.appspot.com",
+            messagingSenderId: "184938827044"
+        };
+        firebase.initializeApp(config);
+        const db = firebase.firestore();
+    </script>
+    <script src="./scripts/chat.js"></script>
+    <script src="./scripts/ui.js"></script>
+    <script src="./scripts/app.js"></script>
+</body>
+
+</html>
